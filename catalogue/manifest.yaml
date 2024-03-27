@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: catalogue
+  name: catalogue-config
 data:
   MONGO: "true"
 ---
@@ -20,7 +20,7 @@ spec:
     image: mutthu2512/catalogue:v2
     envFrom:
     - configMapRef:
-        name: catalogue
+        name: catalogue-config
     resources:
       requests:
         cpu: "100m"
