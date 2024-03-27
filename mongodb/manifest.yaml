@@ -21,7 +21,7 @@ metadata:
 spec:
   selector:
     name: mongodb
-    tier: debug
+    tier: db
   ports:
   - protocol: TCP
     port: 27017
