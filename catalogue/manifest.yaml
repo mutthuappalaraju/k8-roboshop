@@ -9,10 +9,10 @@ data:
 apiVersion: v1
 kind: Pod
 metadata:
-   name: catalogue
-   labels: 
-     name: catalogue
-     tier: app
+  name: catalogue
+  labels:
+    name: catalogue
+    tier: app
 spec:
   containers:
   - name: catalogue
@@ -27,22 +27,21 @@ spec:
         memory: "128Mi"
       limits:
         cpu: "100m"
-        memory: "128Mi"        
-   
-
+        memory: "128Mi"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-   name: catalogue
+  name: catalogue
 spec:
   selector:
     name: catalogue
     tier: app
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8080
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+
 
     
     
