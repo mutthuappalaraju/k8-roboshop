@@ -5,6 +5,7 @@ metadata:
   name: user-config
 data:
   MONGO: "true"
+  REDIS_HOST: "redis"
 ---
 apiVersion: v1
 kind: Pod
