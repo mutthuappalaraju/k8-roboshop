@@ -12,7 +12,7 @@ spec:
   containers:
   - name: web
     imagePullPolicy: Always
-    image: mutthu2512/web:v1
+    image: mutthu2512/web:k1
     resources:
       requests:
         cpu: "100m"
