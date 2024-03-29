@@ -6,13 +6,11 @@ metadata:
   labels:
     name: web
     tier: web
-
-  
 spec:
   containers:
   - name: web
     imagePullPolicy: Always
-    image: mutthu2512/web:k1
+    image:  mutthu2512/web:k1
     resources:
       requests:
         cpu: "100m"
@@ -21,7 +19,7 @@ spec:
         cpu: "100m"
         memory: "128Mi"
     ports:
-      - containerPort: 80
+    - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -33,6 +31,6 @@ spec:
     name: web
     tier: web
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
+  -  protocol: TCP
+     port: 80
+     targetPort: 80
