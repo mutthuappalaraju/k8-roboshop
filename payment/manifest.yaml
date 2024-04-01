@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: mysql
+  name: payment
   namespace: roboshop
 type: Opaque
 data:
@@ -16,29 +16,28 @@ metadata:
   labels: # these labels are deployment labels
     app: payment
     project: roboshop
-    tier: db
+    tier: app
 spec:
   replicas: 1
   selector:
     matchLabels: # these labels are used to find the pods
       app: payment
       project: roboshop
-      tier: db
+      tier: app
   template:
     metadata:
       labels: # these labels are pod labels
         app: payment
         project: roboshop
-        tier: db
+        tier: app
     spec:
       containers:
-      - name: mysql
-        image: mutthu2512/payment:h1
+      - name: payment
+        image:  mutthu2512/payment:h1
         imagePullPolicy: Always
         envFrom:
         - secretRef:
             name: payment
-        
 ---
 apiVersion: v1
 kind: Service
@@ -49,7 +48,7 @@ spec:
   selector:
     app: payment
     project: roboshop
-    tier: db
+    tier: app
   ports:
   - protocol: TCP
     port: 8080 #service-port
