@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: mysql
+  name: rabbitmq
   namespace: roboshop
 type: Opaque
 data:
@@ -13,15 +13,15 @@ kind: Deployment
 metadata:
   name: rabbitmq
   namespace: roboshop
-  labels: # deployment labels
+  labels: # these labels are deployment labels
     app: rabbitmq
     project: roboshop
     tier: db
 spec:
   replicas: 1
   selector:
-    matchLabels: # pods labels
-      app: rabbbitmq
+    matchLabels: # these labels are used to find the pods
+      app: rabbitmq
       project: roboshop
       tier: db
   template:
@@ -52,6 +52,4 @@ spec:
   ports:
   - protocol: TCP
     port: 5672 #service-port
-    targetPort: 5672
-
-
+    targetPort: 5672 #container-port
