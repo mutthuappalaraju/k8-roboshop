@@ -2,45 +2,57 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: catalogue-config
+  name: catalogue
+  namespace: roboshop
 data:
   MONGO: "true"
 ---
-apiVersion: v1
-kind: Pod
-metadata:
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
   name: catalogue
+  namespace: roboshop
   labels:
-    name: catalogue
+    app: catalogue
+    project: roboshop
     tier: app
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: catalogue
+      project: roboshop
+      tier: app
+  template: #pod labels
+      metadata:
+        labels:
+          app: catalogue
+          project: roboshop
+          tier: app
+ 
   containers:
   - name: catalogue
     imagePullPolicy: Always
-    image: mutthu2512/catalogue:v2
+    image: mutthu2512/catalogue:v1 
     envFrom:
     - configMapRef:
-        name: catalogue-config
-    resources:
-      requests:
-        cpu: "100m"
-        memory: "128Mi"
-      limits:
-        cpu: "100m"
-        memory: "128Mi"
+        name: catalogue
+    
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: catalogue
+  namespace: roboshop
 spec:
   selector:
-    name: catalogue
+    app: catalogue
+    project: roboshop
     tier: app
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8080
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
 
 
     
