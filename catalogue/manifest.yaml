@@ -29,14 +29,14 @@ spec:
           app: catalogue
           project: roboshop
           tier: app
- 
-  containers:
-  - name: catalogue
-    imagePullPolicy: Always
-    image: mutthu2512/catalogue:v1 
-    envFrom:
-    - configMapRef:
-        name: catalogue
+  spec:
+    containers:
+    - name: catalogue
+      imagePullPolicy: Always
+      image: mutthu2512/catalogue:v1 
+      envFrom:
+      - configMapRef:
+          name: catalogue
     
 ---
 apiVersion: v1
