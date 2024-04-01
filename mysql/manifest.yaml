@@ -42,7 +42,7 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: mutthu2512/mysql:h1
+        image: mutthu2512/mysql:v1
         imagePullPolicy: Always
         envFrom:
         - configMapRef:
