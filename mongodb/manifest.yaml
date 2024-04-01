@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
        - name: mongodb
-         image: mutthu2512/mongodb:r1
+         image: mutthu2512/mongodb:v1
          imagePullPolicy: Always
    
 ---
