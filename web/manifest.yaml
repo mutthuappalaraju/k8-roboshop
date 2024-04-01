@@ -137,7 +137,7 @@ spec:
       containers:
       - name: web
         imagePullPolicy: Always
-        image: mutthu2512/web:v1 
+        image: mutthu2512/web:h1 
         volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf
