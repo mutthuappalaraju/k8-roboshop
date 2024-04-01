@@ -24,19 +24,19 @@ spec:
       project: roboshop
       tier: app
   template: #pod labels
-      metadata:
-        labels:
-          app: catalogue
-          project: roboshop
-          tier: app
-  spec:
-    containers:
-    - name: catalogue
-      imagePullPolicy: Always
-      image: mutthu2512/catalogue:v1 
-      envFrom:
-      - configMapRef:
-          name: catalogue
+    metadata:
+      labels:
+        app: catalogue
+        project: roboshop
+        tier: app
+    spec:
+      containers:
+      - name: catalogue
+        imagePullPolicy: Always
+        image: mutthu2512/catalogue:v1 
+        envFrom:
+        - configMapRef:
+            name: catalogue
     
 ---
 apiVersion: v1
