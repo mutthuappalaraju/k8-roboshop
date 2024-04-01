@@ -36,10 +36,9 @@ spec:
         image: mutthu2512/payment:h1
         imagePullPolicy: Always
         envFrom:
-        - configMapRef:
-            name: payment
         - secretRef:
             name: payment
+        
 ---
 apiVersion: v1
 kind: Service
