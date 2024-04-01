@@ -8,5 +8,5 @@ spec:
   containers:
   - name: debug
     image: mutthu2512/debug:v1
-    #here with this line port will not be opened, just for information
+    
     command: ["sleep", "100000"]
